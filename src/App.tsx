@@ -24,210 +24,209 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 
 // --- Constants ---
-const PRIMARY_COLOR = "text-green-600";
-const BUTTON_BG = "bg-green-600 hover:bg-green-700";
+const PRIMARY_COLOR = "text-blue-700";
+const BUTTON_BG = "bg-blue-700 hover:bg-blue-800";
 
 // --- Components ---
 
 const TopBar = () => (
-  <div className="bg-red-600 text-white py-2 px-4 text-center text-xs md:text-sm font-black sticky top-0 z-[60] shadow-md animate-pulse">
+  <div className="bg-blue-700 text-white py-2 px-4 text-center text-xs md:text-sm font-black sticky top-0 z-[60] shadow-md animate-pulse">
     🚨 ATENÇÃO: ÚLTIMAS VAGAS COM VALOR PROMOCIONAL DISPONÍVEIS 🚨
   </div>
 );
 
 const Hero = ({ onCtaClick }: { onCtaClick: () => void }) => (
-  <section className="bg-white pt-12 pb-20 px-6 md:pt-20 overflow-hidden relative border-b border-gray-100">
+  <section className="bg-white pt-6 pb-12 px-6 md:pt-12 md:pb-20 overflow-hidden relative border-b border-gray-100">
     <div className="max-w-[1100px] mx-auto text-center relative z-10">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+        className="flex flex-col items-center"
       >
-        <span className="inline-flex items-center gap-2 bg-red-50 text-red-700 px-4 py-1.5 rounded-full text-[10px] md:text-xs font-black mb-8 border border-red-100 uppercase tracking-widest leading-none">
-          <Zap size={14} className="fill-red-600" /> Método Testado e Aprovado
+        <span className="bg-blue-700 text-white px-3 py-1 rounded-full text-[9px] font-black mb-4 uppercase tracking-[0.2em] shadow-lg animate-pulse">
+          VALOR PROMOCIONAL DISPONÍVEL HOJE
         </span>
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-gray-900 leading-[1.1] mb-8 max-w-5xl mx-auto text-balance tracking-tighter">
-          RESGATE SUA AUTOESTIMA E <span className="text-red-600">ELIMINE A BARRIGA</span> EM APENAS 20 DIAS
+        <h1 className="text-3xl md:text-6xl font-black text-gray-900 leading-tight mb-4 text-balance tracking-tighter uppercase italic">
+          Cansada de começar na segunda e <span className="text-blue-700">desistir na quarta?</span>
         </h1>
-        <p className="text-lg md:text-2xl text-gray-600 mb-10 leading-relaxed max-w-3xl mx-auto font-medium">
-          Descubra o único método prático que foca no que realmente importa: <span className="font-bold text-gray-900 shadow-sm">resultados rápidos</span> sem passar fome ou desistir no meio do caminho.
+        <p className="text-lg md:text-xl text-gray-600 mb-6 leading-relaxed font-bold max-w-2xl uppercase tracking-tight">
+          O Protocolo Prático para eliminar entre <span className="text-gray-900 font-black border-b-2 border-blue-600">4 a 6kg em 20 dias</span> sem sacrifícios impossíveis.
         </p>
         
-        <div className="flex flex-col items-center gap-6">
-          <button 
-            type="button"
-            onClick={(e) => { e.preventDefault(); onCtaClick(); }}
-            className={`w-full md:w-auto ${BUTTON_BG} text-white font-black py-5 px-12 rounded-2xl text-xl md:text-2xl shadow-[0_20px_50px_rgba(22,163,74,0.3)] transform transition hover:scale-[1.05] active:scale-95 flex items-center justify-center gap-4 group`}
-          >
-            QUERO COMEÇAR AGORA! 
-            <ArrowRight size={24} className="group-hover:translate-x-1 transition" />
-          </button>
-          
-          <div className="flex flex-col md:flex-row items-center gap-4 text-gray-400 font-bold text-xs uppercase tracking-widest">
-            <div className="flex items-center gap-2">
-              <CheckCircle2 size={16} className="text-green-500" /> Compra 100% Segura
-            </div>
-            <div className="hidden md:block w-1 h-1 bg-gray-300 rounded-full"></div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 size={16} className="text-green-500" /> Acesso Imediato
-            </div>
-            <div className="hidden md:block w-1 h-1 bg-gray-300 rounded-full"></div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 size={16} className="text-green-500" /> Garantia de 7 Dias
-            </div>
+        <div className="w-full max-w-[380px] md:max-w-xl mb-8 relative">
+          <div className="relative z-10 bg-gray-950 rounded-[32px] p-0.5 shadow-2xl overflow-hidden border-2 border-white">
+            <img 
+              src="https://i.ibb.co/1fxsKWJH/Chat-GPT-Image-Mar-31-2026-07-16-01-PM.png" 
+              alt="Protocolo Reset 20D" 
+              className="w-full h-auto rounded-[30px] object-cover px-1"
+              referrerPolicy="no-referrer"
+            />
           </div>
         </div>
+
+        <button 
+          type="button"
+          onClick={(e) => { e.preventDefault(); onCtaClick(); }}
+          className={`w-full md:w-auto ${BUTTON_BG} text-white font-black py-5 px-12 rounded-2xl text-lg md:text-xl shadow-[0_15px_40px_rgba(29,78,216,0.3)] transform transition hover:scale-[1.05] active:scale-95 flex items-center justify-center gap-3 group uppercase tracking-widest leading-none`}
+        >
+          COMEÇAR MEU RESET HOJE
+          <ArrowRight size={22} className="group-hover:translate-x-1 transition" />
+        </button>
       </motion.div>
     </div>
   </section>
 );
 
-const ThePain = () => (
-  <section className="bg-gray-50 py-20 px-6 border-b border-gray-100">
-    <div className="max-w-[800px] mx-auto text-center">
-      <h2 className="text-sm font-black text-red-600 uppercase tracking-widest mb-4">Seja sincera com você mesma...</h2>
-      <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-10 leading-tight tracking-tight text-balance">
-        Quantas vezes você tentou começar e <span className="text-red-600/80">desistiu logo na primeira semana?</span>
+const ThePain = ({ onCtaClick }: { onCtaClick: () => void }) => (
+  <section className="bg-[#f8f9fa] py-20 px-6 border-b border-gray-100 relative overflow-hidden">
+    <div className="max-w-[700px] mx-auto text-center relative z-10">
+      <h2 className="text-sm font-black text-blue-700 uppercase tracking-widest mb-4">Sinceridade absoluta...</h2>
+      <h3 className="text-3xl md:text-5xl font-black text-gray-900 mb-10 leading-tight tracking-tighter uppercase italic">
+        A verdade sobre por que você <span className="text-blue-700">sempre falha</span> na primeira semana
       </h3>
       
-      <div className="space-y-6 text-left">
+      <div className="space-y-3 text-left mb-12">
         {[
-          "Você começa a segunda-feira super animada, compra saladas, se matricula na academia...",
-          "Mas chega na quarta-feira e o estresse do trabalho te faz atacar o primeiro chocolate que vê pela frente.",
-          "O resultado? Aquela frustração enorme, sentimento de incapacidade e a calça que continua apertada.",
-          "O terrível 'efeito sanfona' não é sua culpa, é culpa de métodos complicados que ninguém consegue seguir."
+          "Você começa animada na segunda jantando salada e jurando foco total.",
+          "Na quarta o dia é estressante e você desconta no primeiro doce que vê.",
+          "Vem aquela sensação de culpa, fracasso e o terrível efeito sanfona.",
+          "O erro não é seu: você só tentou seguir planos que não cabem na rotina real."
         ].map((text, i) => (
           <motion.div 
             key={i}
-            initial={{ opacity: 0, x: -10 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 5 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.1 }}
-            className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex items-start gap-4"
+            className="bg-white p-5 rounded-2xl border border-gray-200 flex items-start gap-4"
           >
-            <AlertCircle className="text-red-500 flex-shrink-0 mt-1" size={20} />
-            <p className="text-gray-700 text-lg font-medium leading-relaxed">{text}</p>
+            <X className="text-blue-700 mt-1 flex-shrink-0" size={16} strokeWidth={4} />
+            <p className="text-gray-700 text-base md:text-lg font-bold leading-tight">{text}</p>
           </motion.div>
         ))}
       </div>
+
+      <button 
+        type="button"
+        onClick={(e) => { e.preventDefault(); onCtaClick(); }}
+        className="text-blue-700 font-black text-sm uppercase tracking-widest hover:underline mb-12 block mx-auto underline-offset-4"
+      >
+        VER O MÉTODO AGORA
+      </button>
       
-      <div className="mt-12 bg-red-50 p-6 rounded-3xl border border-red-100">
-        <p className="text-red-800 font-black text-xl italic">
-          "Você não precisa de mais força de vontade. Você precisa de um SISTEMA que trabalhe por você."
+      <div className="bg-gray-900 p-8 rounded-[32px] border border-gray-800 shadow-2xl relative text-white">
+        <p className="font-black text-lg md:text-xl italic leading-tight uppercase tracking-tight mb-4">
+          "Emagrecer não é sobre sofrer. É sobre ter decisões reduzidas e uma rotina prática que você consegue manter."
         </p>
+        <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">A base do Protocolo Reset 20D</span>
       </div>
     </div>
   </section>
 );
 
-const TheMethod = () => (
-  <section className="bg-white py-24 px-6 relative overflow-hidden">
-    {/* Decorative element */}
-    <div className="absolute top-0 right-0 w-64 h-64 bg-green-50 rounded-full blur-3xl opacity-50 -mr-32 -mt-32"></div>
-    
-    <div className="max-w-[1100px] mx-auto flex flex-col md:flex-row items-center gap-12">
-      <div className="flex-1 text-left">
-        <span className="inline-block text-green-600 font-black uppercase tracking-widest mb-4 text-xs">Conheça o seu GPS de emagrecimento</span>
-        <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-8 leading-[1.1] tracking-tighter">
-          Apresentamos o <span className="text-green-600 underline decoration-green-200 underline-offset-4">Método Reset 20D</span>
-        </h2>
-        <p className="text-gray-600 text-xl mb-8 leading-relaxed font-medium">
-          Esqueça as dietas restritivas que te deixam de mau humor. O Reset 20D é um sistema de reprogramação focado em praticidade absoluta.
-        </p>
-        
-        <div className="space-y-6">
-          <div className="flex items-start gap-4">
-            <div className="bg-green-100 p-3 rounded-2xl flex-shrink-0">
-              <TrendingDown size={24} className="text-green-600" />
-            </div>
-            <div>
-              <h4 className="font-black text-gray-900 text-lg mb-1">Impacto Imediato</h4>
-              <p className="text-gray-500 font-medium leading-relaxed">Desenvolvido para você ver os primeiros resultados já nos primeiros dias, mantendo sua motivação no topo.</p>
-            </div>
-          </div>
-          
-          <div className="flex items-start gap-4">
-            <div className="bg-green-100 p-3 rounded-2xl flex-shrink-0">
-              <ShoppingBag size={24} className="text-green-600" />
-            </div>
-            <div>
-              <h4 className="font-black text-gray-900 text-lg mb-1">Simplicidade Real</h4>
-              <p className="text-gray-500 font-medium leading-relaxed">Sem ingredientes caros. Sem horas na cozinha. Apenas o que funciona para quem tem uma vida corrida.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+const TheMethod = ({ onCtaClick }: { onCtaClick: () => void }) => (
+  <section className="bg-white py-20 px-6 relative overflow-hidden">
+    <div className="max-w-[1100px] mx-auto text-center relative z-10">
+      <span className="inline-block text-blue-700 font-black uppercase tracking-[0.3em] mb-4 text-[10px]">Caminho Simples</span>
+      <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-12 leading-tight tracking-tighter uppercase italic text-balance">
+        Emagrecer pode ser simples (se você tiver um plano):
+      </h2>
       
-      <div className="flex-1 w-full max-w-md md:max-w-none">
-        <motion.div
-           initial={{ opacity: 0, scale: 0.9 }}
-           whileInView={{ opacity: 1, scale: 1 }}
-           viewport={{ once: true }}
-           className="relative"
-        >
-          <div className="bg-gray-950 rounded-[40px] p-2 shadow-2xl overflow-hidden">
-            <img 
-              src="https://i.ibb.co/1fxsKWJH/Chat-GPT-Image-Mar-31-2026-07-16-01-PM.png" 
-              alt="Projeto Reset 20D Mockup" 
-              className="w-full h-auto rounded-[32px] object-cover"
-              referrerPolicy="no-referrer"
-            />
-          </div>
-          {/* Floating badge */}
-          <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-3xl shadow-2xl border border-gray-50 z-20 flex items-center gap-4">
-            <div className="bg-green-100 p-2 rounded-xl">
-              <CheckCircle2 size={24} className="text-green-600" />
+      <div className="grid md:grid-cols-3 gap-6 mb-12">
+        {[
+          {
+            step: "01",
+            title: "Limpeza Inicial",
+            desc: "Um cardápio simples para desinchar e reduzir aquela vontade louca por doces já nos primeiros 2 dias.",
+            icon: <Zap className="text-blue-700" />
+          },
+          {
+            step: "02",
+            title: "Rotina Vida Real",
+            desc: "Você aprende a comer o que gosta com substituições inteligentes. Sem gastar horas na cozinha.",
+            icon: <CheckCircle2 className="text-blue-700" />
+          },
+          {
+            step: "03",
+            title: "Resultados em 20 dias",
+            desc: "Seu corpo se adapta ao novo ritmo e você começa a ver a diferença no espelho de forma natural.",
+            icon: <TrendingDown className="text-blue-700" />
+          }
+        ].map((item, i) => (
+          <motion.div 
+            key={i}
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-gray-50 border border-gray-100 p-8 rounded-[40px] text-left relative overflow-hidden hover:bg-white hover:shadow-xl transition duration-500"
+          >
+            <div className="text-5xl font-black text-gray-100 absolute -right-3 -top-3 tracking-tighter">{item.step}</div>
+            <div className="bg-white p-3 rounded-2xl w-fit mb-6 shadow-sm">
+               {item.icon}
             </div>
-            <div className="text-left">
-              <p className="text-xs font-black text-gray-400 tracking-widest uppercase">Resultados</p>
-              <p className="text-xl font-black text-gray-900">Média de -5kg</p>
-            </div>
-          </div>
-        </motion.div>
+            <h4 className="text-xl font-black text-gray-900 mb-3 uppercase tracking-tight">{item.title}</h4>
+            <p className="text-gray-500 font-bold leading-snug text-sm">{item.desc}</p>
+          </motion.div>
+        ))}
       </div>
+
+      <button 
+        type="button"
+        onClick={(e) => { e.preventDefault(); onCtaClick(); }}
+        className="text-gray-950 font-black text-sm uppercase tracking-[0.2em] hover:opacity-70 transition flex items-center gap-2 mx-auto"
+      >
+        VER O MÉTODO COMPLETO <ArrowRight size={16} />
+      </button>
     </div>
   </section>
 );
 
-const Benefits = () => {
+const Benefits = ({ onCtaClick }: { onCtaClick: () => void }) => {
   const list = [
     {
-      title: "VOCÊ VAI SABER EXATAMENTE O QUE COMER",
-      desc: "Chega de dúvidas ou receitas mirabolantes. Você recebe o guia definitivo com ingredientes que você já tem em casa.",
-      icon: <Check className="text-green-600" size={20} />
+      title: "PARE DE ADIVINHAR",
+      desc: "Você recebe a lista exata. Chega de olhar para a geladeira e não saber o que fazer para emagrecer.",
+      icon: <Check className="text-blue-700" size={20} />
     },
     {
-      title: "NÃO VAI PERDER TEMPO DECIDINDO",
-      desc: "O cardápio está pronto. É só abrir e seguir. Ganhe horas de vida sem precisar planejar cada refeição.",
-      icon: <Timer className="text-green-600" size={20} />
+      title: "GANHE TEMPO REAL",
+      desc: "As refeições são rápidas. Você não vai virar escrava da cozinha para ter o corpo que deseja.",
+      icon: <Timer className="text-blue-700" size={20} />
     },
     {
-      title: "VOCÊ SÓ SEGUE E EMAGRECE",
-      desc: "Um plano de 20 dias milimetricamente desenhado para forçar seu corpo a queimar gordura de forma natural.",
-      icon: <ArrowRight className="text-green-600" size={20} />
+      title: "ROUPAS VOLTANDO A SERVIR",
+      desc: "Prepare-se para ouvir: 'O que você fez?'. Os resultados aparecem rápido o suficiente para você se manter motivada.",
+      icon: <Zap className="text-blue-700" size={20} />
     }
   ];
 
   return (
-    <section className="bg-gray-950 py-24 px-6 text-white overflow-hidden relative">
-      {/* Background glow */}
-      <div className="absolute top-1/2 left-[10%] w-[40%] h-[40%] bg-green-600 rounded-full blur-[150px] opacity-10"></div>
+    <section className="bg-gray-950 py-20 px-6 text-white overflow-hidden relative">
+      <div className="absolute top-1/2 left-[10%] w-[40%] h-[40%] bg-blue-700 rounded-full blur-[150px] opacity-10"></div>
       
       <div className="max-w-[1100px] mx-auto text-center relative z-10">
-        <h2 className="text-sm font-black text-green-500 uppercase tracking-[0.2em] mb-4">A Liberdade que você merece</h2>
-        <h3 className="text-4xl md:text-5xl font-black mb-16 tracking-tighter">O QUE ACONTECE NO SEU CORPO EM 20 DIAS:</h3>
+        <h2 className="text-sm font-black text-blue-500 uppercase tracking-[0.2em] mb-4">Resultados Práticos</h2>
+        <h3 className="text-3xl md:text-5xl font-black mb-16 tracking-tighter uppercase italic">O QUE VOCÊ VAI SENTIR EM 20 DIAS:</h3>
         
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
           {list.map((item, idx) => (
             <div key={idx} className="bg-white/5 border border-white/10 p-8 rounded-[32px] text-left hover:bg-white/10 transition group">
-              <div className="bg-green-500/20 w-12 h-12 rounded-2xl flex items-center justify-center mb-6 border border-green-500/30 group-hover:scale-110 transition shadow-inner">
+              <div className="bg-blue-500/20 w-12 h-12 rounded-2xl flex items-center justify-center mb-6 border border-blue-500/30 group-hover:scale-110 transition shadow-inner">
                 {item.icon}
               </div>
-              <h4 className="text-xl font-black mb-4 leading-tight tracking-tight text-white uppercase italic">{item.title}</h4>
-              <p className="text-gray-400 font-medium leading-relaxed">{item.desc}</p>
+              <h4 className="text-lg font-black mb-3 leading-tight tracking-tight text-white uppercase italic">{item.title}</h4>
+              <p className="text-gray-400 font-bold leading-relaxed text-sm">{item.desc}</p>
             </div>
           ))}
         </div>
+
+        <button 
+          type="button"
+          onClick={(e) => { e.preventDefault(); onCtaClick(); }}
+          className="text-white font-black text-xs uppercase tracking-[0.3em] flex items-center gap-2 mx-auto hover:opacity-75 transition bg-white/5 py-3 px-6 rounded-full border border-white/10"
+        >
+          QUERO COMEÇAR MEU RESET AGORA <ArrowRight size={14} />
+        </button>
       </div>
     </section>
   );
@@ -236,55 +235,58 @@ const Benefits = () => {
 const SocialProof = ({ onCtaClick }: { onCtaClick: () => void }) => (
   <section className="bg-white py-24 px-6">
     <div className="max-w-[1100px] mx-auto text-center">
-      <span className="text-green-600 font-black uppercase tracking-widest text-xs mb-4 inline-block">Provas da Transformação</span>
-      <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-16 tracking-tighter">MAIS DE <span className="text-green-600">3.500 VIDAS</span> TRANSFORMADAS</h2>
+      <span className="text-blue-700 font-black uppercase tracking-widest text-xs mb-4 inline-block">Provas da Transformação</span>
+      <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-16 tracking-tighter">MAIS DE <span className="text-blue-700">3.500 VIDAS</span> TRANSFORMADAS</h2>
       
       <div className="grid md:grid-cols-3 gap-8">
         {[
           {
-            name: "Bruna Mendes",
-            res: "Finalmente entrei naquele vestido que estava guardado há 2 anos. Fiz por 20 dias e pareço outra pessoa!",
-            lost: "-6.2kg",
+            name: "Ju Santos",
+            res: "Eu sempre parava na metade. Achei que o problema era meu foco, mas era o método que eu usava. Com o Reset perdi 5.5kg sem nem perceber que estava em dieta.",
+            lost: "-5.5kg",
             img: "https://i.ibb.co/JWmxycq1/571a308c7cb0b6a413ebe8a8e07e5421.jpg"
           },
           {
-            name: "Lucas Pereira",
-            res: "Minha disposição triplicou. O melhor é que não precisei parar de comer as coisas que gosto de verdade.",
-            lost: "-5.5kg",
+            name: "Caco Eduardo",
+            res: "Finalmente algo que dá pra fazer na correria. Eu não tenho tempo de cozinhar coisas difíceis. As trocas do Reset salvaram meu ano e minhas calças voltaram a fechar.",
+            lost: "-6kg",
             img: "https://i.ibb.co/FkXMnkGs/23b7dba95dd0cca0185331a6eaa31c3b.jpg"
           },
           {
-            name: "Fernanda Lima",
-            res: "As pessoas na minha família notaram na mesma hora. Me sinto mais leve, produtiva e feliz.",
-            lost: "-4.8kg",
+            name: "Marta O.",
+            res: "Parei de sentir aquela vontade louca de comer doce todo dia. Me sinto muito mais leve e com energia. Valeu cada centavo.",
+            lost: "-4kg",
             img: "https://i.ibb.co/qLdzh4rm/26dce3c1ad4f4a3bf0828cc2c03c47d7.jpg"
           }
         ].map((item, idx) => (
-          <div key={idx} className="bg-gray-50 border border-gray-100 p-8 rounded-[40px] text-left relative flex flex-col group hover:shadow-xl transition-shadow duration-500">
-            <div className="flex gap-1 mb-6">
-              {[...Array(5)].map((_, i) => <Star key={i} size={16} className="fill-yellow-400 text-yellow-400" />)}
+          <div key={idx} className="bg-white border border-gray-100 p-8 rounded-[36px] text-left flex flex-col group shadow-sm hover:shadow-xl transition duration-500">
+            <div className="flex gap-1 mb-4 text-gray-200">
+              <Star size={14} className="fill-blue-600 text-blue-600" />
+              <Star size={14} className="fill-blue-600 text-blue-600" />
+              <Star size={14} className="fill-blue-600 text-blue-600" />
+              <Star size={14} className="fill-blue-600 text-blue-600" />
+              <Star size={14} className="fill-blue-600 text-blue-600" />
             </div>
-            <p className="text-gray-700 text-xl font-medium leading-relaxed mb-10 flex-grow italic">"{item.res}"</p>
-            
-            <div className="flex items-center gap-4 pt-6 border-t border-gray-200">
-              <img src={item.img} alt={item.name} className="w-14 h-14 rounded-2xl object-cover grayscale group-hover:grayscale-0 transition duration-500 shadow-md" />
+            <p className="text-gray-600 text-base md:text-lg font-medium leading-snug mb-8 flex-grow italic">"{item.res}"</p>
+            <div className="flex items-center gap-3 pt-5 border-t border-gray-50">
+              <img src={item.img} alt={item.name} className="w-12 h-12 rounded-xl object-cover shadow-sm" />
               <div>
-                <p className="font-black text-gray-900 text-lg uppercase tracking-tight leading-none">{item.name}</p>
-                <p className="text-green-600 font-black text-sm uppercase tracking-widest mt-1">Resultado: {item.lost}</p>
+                <p className="font-extrabold text-gray-900 text-sm uppercase tracking-tight">{item.name}</p>
+                <p className="text-blue-700 font-black text-[10px] uppercase tracking-widest">{item.lost} em 20 dias</p>
               </div>
             </div>
           </div>
         ))}
       </div>
       
-      <div className="mt-16">
+      <div className="mt-12">
         <button 
           type="button"
           onClick={(e) => { e.preventDefault(); onCtaClick(); }}
-          className="text-gray-900 font-black flex items-center gap-2 mx-auto hover:gap-4 transition-all duration-300 text-lg group uppercase tracking-widest"
+          className="text-gray-900 font-extrabold flex items-center gap-2 mx-auto hover:gap-4 transition-all duration-300 text-base group uppercase tracking-widest"
         >
-          VEJA OS PLANOS E COMECE SEU RESET AGORA
-          <ArrowRight className="text-green-600" />
+          QUERO PARAR DE DESISTIR AGORA
+          <ArrowRight className="text-blue-700" />
         </button>
       </div>
     </div>
@@ -315,7 +317,7 @@ const FAQ = () => {
   return (
     <section className="bg-white py-24 px-6 border-t border-gray-100">
       <div className="max-w-[800px] mx-auto">
-        <h2 className="text-sm font-black text-green-600 text-center uppercase tracking-widest mb-4">Transparência Total</h2>
+        <h2 className="text-sm font-black text-blue-700 text-center uppercase tracking-widest mb-4">Transparência Total</h2>
         <h3 className="text-3xl md:text-5xl font-black text-center text-gray-900 mb-16 tracking-tighter">PERGUNTAS FREQUENTES</h3>
         
         <div className="space-y-4">
@@ -327,7 +329,7 @@ const FAQ = () => {
                 className="w-full flex items-center justify-between p-7 text-left transition"
               >
                 <span className="font-black text-gray-900 text-lg md:text-xl leading-snug tracking-tight">{faq.q}</span>
-                <div className={`p-2 rounded-full transition-all duration-300 ${openIdx === idx ? 'bg-green-600 text-white rotate-180' : 'bg-white text-gray-400 shadow-sm'}`}>
+                <div className={`p-2 rounded-full transition-all duration-300 ${openIdx === idx ? 'bg-blue-700 text-white rotate-180' : 'bg-white text-gray-400 shadow-sm'}`}>
                   <ChevronDown size={20} />
                 </div>
               </button>
@@ -356,111 +358,115 @@ const Pricing = React.forwardRef<HTMLDivElement, {
   onPlan1Click: () => void, 
   onPlan3Click: () => void 
 }>(({ onPlan1Click, onPlan3Click }, ref) => (
-  <section id="pricing" ref={ref} className="bg-gray-50 py-24 px-6 relative">
+  <section id="pricing" ref={ref} className="bg-white py-24 px-6 relative border-t border-gray-100">
     <div className="max-w-[1100px] mx-auto text-center">
-      <span className="inline-block bg-green-100 text-green-700 px-6 py-2 rounded-full text-xs font-black mb-6 uppercase tracking-widest border border-green-200">
-        Condição Especial Hoje: ATÉ 60% OFF
-      </span>
-      <h2 className="text-4xl md:text-6xl font-black text-gray-900 mb-6 tracking-tighter uppercase italic">Escolha sua transformação</h2>
-      <p className="text-gray-500 text-lg max-w-2xl mx-auto mb-16 font-medium">Garanta seu acesso agora e receba todos os bônus exclusivos antes que o cronômetro chegue ao zero.</p>
+      <div className="inline-flex items-center gap-2 bg-blue-700 text-white px-6 py-2 rounded-full text-xs font-black mb-8 uppercase tracking-[0.2em] shadow-xl animate-pulse">
+        <Timer size={14} /> Oferta por tempo limitado (últimas vagas)
+      </div>
+      <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-4 tracking-tighter uppercase italic">Escolha o nível ideal para o seu resultado</h2>
+      <p className="text-gray-500 text-lg max-w-2xl mx-auto mb-16 font-medium leading-snug">
+        Todos os planos incluem o método Reset 20D — a diferença está na <span className="text-gray-900 font-bold border-b-2 border-blue-500">facilidade e velocidade</span> do seu resultado.
+      </p>
       
-      <div className="grid md:grid-cols-2 gap-8 items-stretch max-w-[900px] mx-auto">
-        {/* Plano 1 - Reset Essencial */}
-        <div className="bg-white p-8 md:p-12 rounded-[48px] border border-gray-100 flex flex-col shadow-sm transition hover:shadow-xl group relative overflow-hidden">
-          <div className="mb-10 text-left">
-            <h3 className="text-2xl font-black text-gray-900 mb-2 uppercase tracking-tight">Reset Essencial</h3>
-            <p className="text-gray-400 font-bold text-sm tracking-wide">O ponto de partida</p>
+      <div className="grid md:grid-cols-2 gap-6 items-stretch max-w-[900px] mx-auto">
+        {/* Plano 1 - Essencial */}
+        <div className="bg-gray-50 p-8 rounded-[44px] border border-gray-200 flex flex-col transition hover:border-blue-200 group relative">
+          <div className="absolute top-6 right-8">
+            <span className="text-[10px] font-black text-blue-700/40 uppercase tracking-widest">Para começar</span>
+          </div>
+          <div className="mb-8 text-left">
+            <h3 className="text-xl font-black text-gray-900 mb-1 uppercase tracking-tight italic">Essencial</h3>
+            <p className="text-gray-500 font-bold text-xs leading-tight">Comece do jeito simples e direto, sem complicação</p>
           </div>
           
-          <div className="mb-10 text-left">
-            <p className="text-gray-400 line-through font-bold text-sm mb-1 uppercase tracking-widest">De R$ 67,90</p>
-            <div className="flex items-baseline gap-2">
-              <span className="text-lg font-black text-gray-900">Por R$</span>
-              <span className="text-7xl font-black text-gray-900 tracking-tighter">12,97</span>
+          <div className="mb-8 text-left">
+            <p className="text-gray-400 line-through font-bold text-[10px] mb-1 uppercase tracking-widest">De R$ 67,90</p>
+            <div className="flex items-baseline gap-1">
+              <span className="text-base font-black text-gray-900">R$</span>
+              <span className="text-6xl font-black text-gray-900 tracking-tighter">12,97</span>
             </div>
-            <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mt-4 flex items-center gap-2">
-              <CheckCircle2 size={14} className="text-green-500" /> Acesso Digital Imediato
-            </p>
           </div>
 
-          <ul className="space-y-4 mb-10 flex-grow text-left">
+          <ul className="space-y-3 mb-8 flex-grow text-left">
+            {[
+              "Método Reset 20D (passo a passo)",
+              "Guia \"Leia Antes de Começar\"",
+              "Rotina Simples diária"
+            ].map((item, i) => (
+              <li key={i} className="flex items-start gap-2 text-gray-600 font-bold text-xs uppercase tracking-tight leading-tight">
+                <CheckCircle2 size={16} className="text-green-500 mt-0.5 flex-shrink-0" /> {item}
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-auto">
+            <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-4 italic">Perfeito para quem quer dar o primeiro passo</p>
+            <button 
+              type="button"
+              onClick={(e) => { e.preventDefault(); onPlan1Click(); }}
+              className="w-full bg-gray-900 hover:bg-black text-white font-black py-4 rounded-2xl transition-all duration-300 active:scale-95 text-base uppercase tracking-widest shadow-lg"
+            >
+              QUERO COMEÇAR
+            </button>
+          </div>
+        </div>
+
+        {/* Plano 3 - Platinum */}
+        <div className="bg-gray-900 p-8 rounded-[44px] border-4 border-blue-700 flex flex-col shadow-2xl relative z-10">
+          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-700 text-white text-[9px] font-black px-6 py-2 rounded-full uppercase tracking-[0.2em] shadow-xl whitespace-nowrap">
+            MAIS COMPLETO
+          </div>
+
+          <div className="mb-8 text-left">
+            <h3 className="text-2xl font-black text-white mb-1 uppercase tracking-tight italic">Platinum</h3>
+            <p className="text-blue-400 font-bold text-xs tracking-wide">O plano completo para quem quer resultado sem desculpas</p>
+          </div>
+          
+          <div className="mb-8 text-left text-white">
+            <p className="text-white/30 line-through font-bold text-[10px] mb-1 uppercase tracking-widest">De R$ 147,90</p>
+            <div className="flex items-baseline gap-1">
+              <span className="text-base font-black text-blue-500">R$</span>
+              <span className="text-7xl font-black tracking-tighter text-white">22,97</span>
+            </div>
+            <div className="mt-2 text-blue-400 text-[10px] font-black uppercase tracking-widest italic group-hover:animate-bounce">
+              🔥 Melhor custo-benefício (Apenas R$10+ que o Essencial)
+            </div>
+          </div>
+
+          <ul className="space-y-3 mb-8 flex-grow text-left">
             {[
               "Método Reset 20D Completo",
-              "Guia de Orientação Inicial",
-              "Suporte por E-mail",
-              "Material 100% Digital"
-            ].map((item, i) => (
-              <li key={i} className="flex items-start gap-3 text-gray-600 font-bold text-sm">
-                <Check size={18} className="text-green-500 mt-0.5 flex-shrink-0" /> {item}
-              </li>
-            ))}
-          </ul>
-
-          <button 
-            type="button"
-            onClick={(e) => { e.preventDefault(); onPlan1Click(); }}
-            className="w-full bg-gray-900 hover:bg-black text-white font-black py-5 rounded-2xl transition-all duration-300 shadow-lg active:scale-95 text-lg uppercase tracking-widest"
-          >
-            QUERO O ESSENCIAL
-          </button>
-        </div>
-
-        {/* Plano 2 - Reset Platinum */}
-        <div className="bg-gray-900 p-8 md:p-12 rounded-[48px] border-4 border-green-600 flex flex-col shadow-2xl relative transform md:scale-110 z-10 transition hover:-translate-y-2 group">
-          <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-green-600 text-white text-[10px] font-black px-8 py-2.5 rounded-full uppercase tracking-[0.2em] z-20 shadow-xl whitespace-nowrap animate-bounce">
-            RECOMENDADO
-          </div>
-
-          <div className="mb-10 text-left">
-            <h3 className="text-2xl font-black text-white mb-2 uppercase tracking-tight italic">Reset Platinum</h3>
-            <p className="text-green-400 font-bold text-sm tracking-wide flex items-center gap-2">
-               Acesso Total + 3 Bônus <Zap size={14} className="fill-green-400" />
-            </p>
-          </div>
-          
-          <div className="mb-10 text-left text-white">
-            <p className="text-white/30 line-through font-bold text-sm mb-1 uppercase tracking-widest">De R$ 147,90</p>
-            <div className="flex items-baseline gap-2">
-              <span className="text-lg font-black text-green-500">Por R$</span>
-              <span className="text-7xl font-black tracking-tighter">22,97</span>
-            </div>
-            <p className="text-[10px] font-black text-white/50 uppercase tracking-widest mt-4">PAGAMENTO ÚNICO • ACESSO VITALÍCIO</p>
-          </div>
-
-          <ul className="space-y-4 mb-10 flex-grow text-left">
-            {[
-              "Projeto Reset 20D Completo",
-              "Cardápio Especial 20 Dias",
+              "Cardápio pronto para 20 dias",
+              "Lista de compras inteligente",
               "Checklist Anti-Deslize",
-              "PLANO ANTI-COMPULSÃO (Extra)",
-              "GUIA DE SUBSTITUIÇÕES (Extra)",
-              "LIVRO DE RECEITAS SHREDS (Extra)"
+              "Plano Anti-Compulsão Alimentar",
+              "Guia de Substituições",
+              "Receitas práticas"
             ].map((item, i) => (
-              <li key={i} className="flex items-start gap-3 text-white font-black text-sm uppercase tracking-tight">
-                <CheckCircle2 size={18} className="text-green-500 mt-0.5 flex-shrink-0 fill-green-500/10" /> {item}
+              <li key={i} className="flex items-start gap-2 text-white font-black text-xs uppercase tracking-tight leading-tight">
+                <CheckCircle2 size={16} className="text-green-500 mt-0.5 flex-shrink-0" /> {item}
               </li>
             ))}
           </ul>
 
-          <div className="bg-white/5 p-6 rounded-3xl mb-8 border border-white/10 text-left">
-             <p className="text-green-500 font-black text-[10px] uppercase tracking-widest mb-4">Pacote de Bônus Grátis:</p>
-             <div className="grid grid-cols-1 gap-2">
-                <span className="text-white/70 text-xs font-bold flex items-center gap-2"><div className="w-1 h-1 bg-green-500 rounded-full"></div> Receitas Simples</span>
-                <span className="text-white/70 text-xs font-bold flex items-center gap-2"><div className="w-1 h-1 bg-green-500 rounded-full"></div> Guia de Substituições</span>
-                <span className="text-white/70 text-xs font-bold flex items-center gap-2"><div className="w-1 h-1 bg-green-500 rounded-full"></div> Rotina de Hábitos</span>
-             </div>
+          <div className="mt-auto">
+            <p className="text-white text-[10px] font-bold uppercase tracking-widest mb-4 italic opacity-80 decoration-blue-500 underline underline-offset-4">Você elimina recaídas e mantém consistência até o final</p>
+            <button 
+              type="button"
+              onClick={(e) => { e.preventDefault(); onPlan3Click(); }}
+              className="w-full bg-blue-700 hover:bg-blue-800 text-white font-black py-5 rounded-2xl shadow-[0_10px_40px_rgba(29,78,216,0.4)] transition-all duration-300 active:scale-95 text-lg uppercase tracking-[0.1em]"
+            >
+              QUERO O RESULTADO COMPLETO
+            </button>
           </div>
-
-          <button 
-            type="button"
-            onClick={(e) => { e.preventDefault(); onPlan3Click(); }}
-            className="w-full bg-green-600 hover:bg-green-700 text-white font-black py-6 rounded-2xl shadow-[0_10px_40px_rgba(22,163,74,0.4)] transition-all duration-300 active:scale-95 text-xl uppercase tracking-[0.05em]"
-          >
-            QUERO O RESET TOTAL
-          </button>
-          
-          <p className="mt-6 text-white/40 text-[9px] font-black uppercase tracking-[0.2em]">ÚLTIMAS UNIDADES COM DESCONTO</p>
         </div>
+      </div>
+
+      <div className="mt-16 max-w-3xl mx-auto p-10 bg-gray-50 rounded-[40px] border border-gray-100">
+         <p className="text-gray-700 text-lg md:text-xl font-bold leading-relaxed italic text-balance">
+           "Quanto mais suporte você tem, mais fácil é chegar no resultado. 
+           A diferença entre tentar sozinho e seguir um plano completo é o que define quem chega até o final."
+         </p>
       </div>
     </div>
   </section>
@@ -470,8 +476,8 @@ const Guarantee = () => (
   <section className="bg-white py-24 px-6 relative overflow-hidden">
     <div className="max-w-[900px] mx-auto flex flex-col md:flex-row items-center gap-12 bg-gray-50 p-10 md:p-16 rounded-[48px] border border-gray-100 shadow-sm">
       <div className="w-32 h-32 md:w-48 md:h-48 flex-shrink-0 relative">
-        <ShieldCheck size={128} className="text-green-600 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full" />
-        <div className="absolute inset-0 bg-green-400/10 rounded-full blur-2xl"></div>
+        <ShieldCheck size={128} className="text-blue-700 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full" />
+        <div className="absolute inset-0 bg-blue-400/10 rounded-full blur-2xl"></div>
       </div>
       
       <div className="text-left flex-grow">
@@ -481,11 +487,11 @@ const Guarantee = () => (
         </p>
         <div className="flex flex-wrap items-center gap-4">
           <div className="bg-white px-6 py-4 rounded-3xl border border-gray-200 shadow-sm flex items-center gap-3">
-             <Check size={20} className="text-green-600" />
+             <Check size={20} className="text-blue-700" />
              <span className="font-black text-gray-900 uppercase tracking-widest text-[10px]">Sem Perguntas</span>
           </div>
           <div className="bg-white px-6 py-4 rounded-3xl border border-gray-200 shadow-sm flex items-center gap-3">
-             <Check size={20} className="text-green-600" />
+             <Check size={20} className="text-blue-700" />
              <span className="font-black text-gray-900 uppercase tracking-widest text-[10px]">Sem Burocracia</span>
           </div>
         </div>
@@ -547,25 +553,29 @@ const UpgradePopup = ({ isOpen, onClose, onConfirm, onDecline }: {
           exit={{ scale: 0.9, opacity: 0, y: 20 }}
           className="bg-white w-full max-w-[440px] rounded-[48px] p-8 md:p-12 relative z-10 text-center shadow-2xl border border-gray-100 flex flex-col"
         >
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-red-600 text-white font-black px-6 py-2 rounded-full uppercase tracking-[0.2em] text-[10px] shadow-xl">
-             OFERTA ÚNICA
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-700 text-white font-black px-6 py-2 rounded-full uppercase tracking-[0.2em] text-[10px] shadow-xl">
+             ATENÇÃO
           </div>
 
           <div className="flex-grow">
-            <h2 className="text-3xl font-black text-gray-900 mb-4 uppercase italic tracking-tighter leading-none">ESPERE! JÁ QUE VOCÊ TOMOU ESSA DECISÃO...</h2>
-            <p className="text-gray-500 font-bold mb-8 leading-tight">
-              Libere o <span className="text-red-600 font-black">Reset Acelerado</span> e potencialize seus resultados por apenas <span className="underline italic">R$5,00 a mais</span>.
+            <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-2 uppercase italic tracking-tighter leading-none">ESPERA — NÃO COMETA ESSE ERRO</h2>
+            <p className="text-gray-500 font-bold mb-6 text-sm leading-tight">
+              Você pode aumentar <span className="text-blue-700 font-black">MUITO</span> suas chances de resultado por apenas <span className="underline italic">R$5,00 a mais</span>
             </p>
+
+            <div className="mb-6 bg-blue-50 py-3 rounded-2xl border border-blue-100">
+               <span className="text-blue-700 font-black uppercase tracking-[0.2em] text-[10px]">Ative o modo acelerado do Reset 20D</span>
+            </div>
 
             <div className="bg-gray-50 p-6 rounded-[32px] mb-8 text-left border border-gray-100">
               <ul className="space-y-4">
                 {[
-                  "Cardápio Especial 20 Dias",
-                  "Checklist Diário Anti-Deslize",
-                  "Plano de Hidratação Detox",
-                  "Manual de Ativação Metabólica"
+                  "Cardápio pronto (você não precisa pensar)",
+                  "Checklist diário (evita desistir no meio)",
+                  "Plano simples de hidratação (acelera tudo)",
+                  "Guia prático pra manter consistência"
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-gray-900 font-black text-xs md:text-sm uppercase tracking-tight">
+                  <li key={i} className="flex items-center gap-3 text-gray-900 font-black text-xs md:text-sm uppercase tracking-tight leading-tight">
                     <CheckCircle2 size={16} className="text-green-500 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
@@ -573,20 +583,24 @@ const UpgradePopup = ({ isOpen, onClose, onConfirm, onDecline }: {
               </ul>
             </div>
 
+            <p className="text-gray-900 font-black text-xs uppercase mb-6 tracking-tight italic">
+              "Sem isso, você vai ter que fazer tudo sozinha — e é aí que a maioria desiste."
+            </p>
+
             <div className="flex flex-col gap-4">
               <button 
                 type="button"
                 onClick={(e) => { e.preventDefault(); onConfirm(); }}
-                className="w-full bg-green-600 hover:bg-green-700 text-white font-black py-5 rounded-2xl text-lg shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 uppercase tracking-widest leading-none"
+                className="w-full bg-blue-700 hover:bg-blue-800 text-white font-black py-5 rounded-2xl text-base md:text-lg shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 uppercase tracking-widest leading-none"
               >
-                SIM! QUERO ACELERAR TUDO
+                SIM! QUERO RESULTADO MAIS RÁPIDO
               </button>
               <button 
                 type="button"
                 onClick={(e) => { e.preventDefault(); onDecline(); }}
-                className="text-gray-400 hover:text-red-500 text-[10px] font-black uppercase tracking-widest transition-colors py-2"
+                className="text-gray-400 hover:text-red-500 text-[10px] font-black uppercase tracking-widest transition-colors py-2 opacity-60"
               >
-                Não, prefiro ir pelo caminho mais difícil
+                Não, vou tentar sozinho e correr o risco de desistir
               </button>
             </div>
           </div>
@@ -629,35 +643,37 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white font-sans text-gray-900 selection:bg-green-100 selection:text-green-900 antialiased overflow-x-hidden">
+    <div className="min-h-screen bg-white font-sans text-gray-900 selection:bg-blue-100 selection:text-blue-900 antialiased overflow-x-hidden">
       <TopBar />
       
       <main>
         <Hero onCtaClick={() => scrollToPricing()} />
-        <ThePain />
-        <TheMethod />
-        <Benefits />
+        <ThePain onCtaClick={() => scrollToPricing()} />
+        <TheMethod onCtaClick={() => scrollToPricing()} />
+        <Benefits onCtaClick={() => scrollToPricing()} />
         <SocialProof onCtaClick={() => scrollToPricing()} />
         
-        <section className="bg-red-600 py-16 px-6 text-center text-white relative overflow-hidden group">
-          <div className="absolute inset-0 bg-black opacity-10 group-hover:opacity-0 transition duration-500"></div>
-          <div className="max-w-[1100px] mx-auto relative z-10">
-            <h3 className="text-3xl md:text-5xl font-black mb-10 tracking-tighter uppercase italic text-balance">PARE DE DEIXAR SUA FELICIDADE PARA DEPOIS</h3>
-            <button 
-              type="button"
-              onClick={(e) => { e.preventDefault(); scrollToPricing(); }}
-              className="bg-white text-red-600 font-black py-5 px-12 rounded-2xl text-xl md:text-2xl shadow-2xl hover:bg-gray-100 transition-all active:scale-95 uppercase tracking-widest leading-none"
-            >
-              QUERO PARAR DE DESISTIR
-            </button>
-          </div>
-        </section>
-
         <Pricing 
           ref={pricingRef} 
           onPlan1Click={() => handlePlan1Click()}
           onPlan3Click={() => handlePlan3Click()}
         />
+
+        <section className="bg-gray-900 py-16 px-6 text-center text-white relative overflow-hidden">
+          <div className="max-w-[1100px] mx-auto relative z-10 flex flex-col items-center">
+            <h3 className="text-3xl md:text-5xl font-black mb-8 tracking-tighter uppercase italic text-balance">PARE DE DEIXAR SUA SAÚDE PARA DEPOIS</h3>
+            <button 
+              type="button"
+              onClick={(e) => { e.preventDefault(); scrollToPricing(); }}
+              className={`w-full md:w-auto ${BUTTON_BG} text-white font-black py-6 px-16 rounded-2xl text-xl md:text-2xl shadow-2xl transition-all active:scale-95 uppercase tracking-[0.2em] leading-none mb-6`}
+            >
+              QUERO PARAR DE DESISTIR
+            </button>
+            <div className="flex items-center gap-2 text-blue-700 text-[10px] font-black uppercase tracking-widest">
+               <Zap size={14} className="fill-blue-700" /> Acesso imediato liberado
+            </div>
+          </div>
+        </section>
         
         <Guarantee />
         <FAQ />
